@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', Arial, sans-serif;
+        background-color: #f5f5f7; /* Light gray background */
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #4b2c5e; /* Lavender */
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        transform: translateZ(0);
+        transition: transform 0.3s;
+      }
+
+      h1:hover {
+        transform: scale(1.1);
+      }
+
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .recipe {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #555;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        white-space: pre-line;
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+
+      .recipe strong {
+        color: #a346a0; /* Dark lavender */
+        font-weight: bold;
+      }
+
+      .recipe em {
+        color: #007f7a; /* Teal */
+        font-style: italic;
+      }
+
+      .recipe span {
+        color: #558d50; /* Green */
+      }
+
+      .recipe::before {
+        content: "\f2bb";
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: bold;
+        color: #a346a0; /* Dark lavender */
+      }
+
+      .recipe-image {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .recipe-image img {
+        max-width: 100%;
+        max-height: 400px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Recipe Result</h1>
+    </header>
+    <main>
+      <div class="recipe"></div>
+      <div class="recipe-image"></div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        const recipeDiv = $('.recipe');
+        const imageDiv = $('.recipe-image');
+
+        // Retrieve recipe from query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipe = urlParams.get('recipe');
+
+        // Update the recipe
+        recipeDiv.html(`<ol>${recipe}</ol>`);
+      });
+    </script>
+  </body>
+</html>
